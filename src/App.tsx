@@ -42,7 +42,7 @@ const projects = [
         title: "CV & Generative Models @ CEA",
         subtitle: "Trained models like Mask R-CNN, Autoencoders, GANs for computer vision tasks",
         icon: Brain,
-        confidential: true
+        link: "/src/assets/pdfs/Rapport pole projet IA.pdf"
     },
     {
         title: "Hackathon Winner: REX System",
@@ -104,7 +104,7 @@ function App() {
                                             {!project.confidential && project.link && (
                                                 <div className="flex items-center px-2 py-0.5 bg-green-900/30 text-green-200/70 text-xs rounded-full">
                                                     <Code size={12} className="mr-1" />
-                                                    Open source
+                                                    Available
                                                 </div>
                                             )}
                                         </div>

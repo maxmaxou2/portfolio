@@ -10,6 +10,7 @@ import {
     Gamepad,
     Github,
     Linkedin,
+    Lock,
 } from 'lucide-react';
 
 const projects = [
@@ -23,32 +24,37 @@ const projects = [
         title: "Document Intelligence Platform",
         subtitle: "Production-grade RAG system using OpenAI, Mistral, and OCR for document parsing",
         icon: FileText,
-        link: null
+        confidential: true
     },
     {
         title: "GPS Extraction from Blueprints",
         subtitle: "Computer vision pipeline with OpenCV and binary classifier for building localization",
-        icon: Eye
+        icon: Eye,
+        confidential: true
     },
     {
         title: "Data Platform Engineering",
         subtitle: "Data pipelines with Dagster and optimized PostgreSQL via SQLAlchemy ORM",
-        icon: Database
+        icon: Database,
+        confidential: true
     },
     {
         title: "CV & Generative Models @ CEA",
         subtitle: "Trained models like Mask R-CNN, Autoencoders, GANs for computer vision tasks",
-        icon: Brain
+        icon: Brain,
+        confidential: true
     },
     {
         title: "Hackathon Winner: REX System",
         subtitle: "PWA with SQL-based semantic search using Transformer embeddings",
-        icon: Compass
+        icon: Compass,
+        link: "https://github.com/maxmaxou2/T-REX"
     },
     {
         title: "Poker Assistant UI",
         subtitle: "CNN-based card recognition and real-time probability guidance in Python UI",
-        icon: Gamepad
+        icon: Gamepad,
+        link: "https://github.com/maxmaxou2/poker_project"
     }
 ];
 
@@ -85,9 +91,23 @@ function App() {
                                         />
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                        <h3 className="text-xl font-medium mb-2 text-white group-hover:text-gray-100">
-                                            {project.title}
-                                        </h3>
+                                        <div className="flex items-center space-x-2">
+                                            <h3 className="text-xl font-medium text-white group-hover:text-gray-100">
+                                                {project.title}
+                                            </h3>
+                                            {project.confidential && (
+                                                <div className="flex items-center px-2 py-0.5 bg-orange-900/30 text-orange-200/70 text-xs rounded-full">
+                                                    <Lock size={12} className="mr-1" />
+                                                    Confidential
+                                                </div>
+                                            )}
+                                            {!project.confidential && project.link && (
+                                                <div className="flex items-center px-2 py-0.5 bg-green-900/30 text-green-200/70 text-xs rounded-full">
+                                                    <Code size={12} className="mr-1" />
+                                                    Open source
+                                                </div>
+                                            )}
+                                        </div>
                                         <p className="text-gray-400 leading-relaxed font-light">
                                             {project.subtitle}
                                         </p>

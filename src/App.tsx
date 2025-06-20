@@ -42,7 +42,7 @@ const projects = [
         title: "CV & Generative Models @ CEA",
         subtitle: "Trained models like Mask R-CNN, Autoencoders, GANs for computer vision tasks",
         icon: Brain,
-        link: "/src/assets/pdfs/Rapport pole projet IA.pdf"
+        link: "/assets/pdfs/Rapport pole projet IA.pdf"
     },
     {
         title: "Hackathon Winner: REX System",
@@ -154,7 +154,7 @@ function App() {
                             />
                         </a>
                         <a
-                            href="/src/assets/pdfs/CV_Maxence_Rossignol.pdf"
+                            href="/assets/pdfs/CV_Maxence_Rossignol.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"

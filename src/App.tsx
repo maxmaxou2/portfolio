@@ -63,19 +63,52 @@ function App() {
         <div className="min-h-screen bg-[#0f0f0f] text-gray-100">
             <div className="max-w-2xl mx-auto px-6 py-16">
                 {/* Introduction */}
-                <div className="mb-20">
-                    <h1 className="text-4xl font-light mb-6 text-white">
+                <div className="mb-10">
+                    <h1 className="text-4xl font-light mb-6 text-white text-center">
                         Maxence Rossignol
                     </h1>
-                    <p className="text-lg leading-relaxed text-gray-300 font-light">
-                        AI/ML Engineer passionate about building intelligent systems that solve real-world problems.
-                        I specialize in deep learning, computer vision, and natural language processing, with a focus
-                        on creating scalable and production-ready artificial intelligence solutions.
+                    <p className="text-lg leading-relaxed text-gray-300 font-light text-center">
+                        AI/ML Engineer focused on building production-ready intelligent systems. 
+                        Expertise in deep learning, computer vision, and NLP for real-world apps.
                     </p>
+                    <div className="flex justify-center space-x-4 mt-6">
+                        <a
+                            href="https://github.com/maxmaxou2"
+                            className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
+                            aria-label="GitHub"
+                        >
+                            <Github
+                                size={18}
+                                className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
+                            />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/maxencerossignol/"
+                            className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
+                            aria-label="LinkedIn"
+                        >
+                            <Linkedin
+                                size={18}
+                                className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
+                            />
+                        </a>
+                        <a
+                            href="/assets/pdfs/CV_Maxence_Rossignol.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
+                            aria-label="Resume"
+                        >
+                            <FileText
+                                size={18}
+                                className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
+                            />
+                        </a>
+                    </div>
                 </div>
 
                 {/* Projects */}
-                <div className="space-y-8 mb-20">
+                <div className="space-y-5 mb-20">
                     {projects.map((project, index) => {
                         const IconComponent = project.icon;
                         const content = (
@@ -129,44 +162,6 @@ function App() {
                         ) : content;
                     })}
                 </div>
-
-                {/* Footer */}
-                <footer className="border-t border-[#2a2a2a] pt-12">
-                    <div className="flex justify-center space-x-8">
-                        <a
-                            href="https://github.com/maxmaxou2"
-                            className="group flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
-                            aria-label="GitHub"
-                        >
-                            <Github
-                                size={20}
-                                className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
-                            />
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/maxencerossignol/"
-                            className="group flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
-                            aria-label="LinkedIn"
-                        >
-                            <Linkedin
-                                size={20}
-                                className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
-                            />
-                        </a>
-                        <a
-                            href="/assets/pdfs/CV_Maxence_Rossignol.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group flex items-center justify-center w-12 h-12 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
-                            aria-label="Resume"
-                        >
-                            <FileText
-                                size={20}
-                                className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
-                            />
-                        </a>
-                    </div>
-                </footer>
             </div>
         </div>
     );

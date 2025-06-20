@@ -16,22 +16,19 @@ const projects = [
     {
         title: "Dotfiles: Developer Workflow",
         subtitle: "Custom environment using NeoVim, Tmux, and Hammerspoon for productivity and speed",
-        icon: Wrench
+        icon: Wrench,
+        link: "https://github.com/maxmaxou2/dotfiles"
     },
     {
         title: "Document Intelligence Platform",
         subtitle: "Production-grade RAG system using OpenAI, Mistral, and OCR for document parsing",
-        icon: FileText
+        icon: FileText,
+        link: null
     },
     {
         title: "GPS Extraction from Blueprints",
         subtitle: "Computer vision pipeline with OpenCV and binary classifier for building localization",
         icon: Eye
-    },
-    {
-        title: "Async Parsing Engine",
-        subtitle: "High-throughput Python client using asyncio for faster document processing",
-        icon: Code
     },
     {
         title: "Data Platform Engineering",
@@ -75,7 +72,7 @@ function App() {
                 <div className="space-y-8 mb-20">
                     {projects.map((project, index) => {
                         const IconComponent = project.icon;
-                        return (
+                        const content = (
                             <div
                                 key={index}
                                 className="group cursor-pointer"
@@ -98,6 +95,18 @@ function App() {
                                 </div>
                             </div>
                         );
+
+                        return project.link ? (
+                            <a
+                                key={index}
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block"
+                            >
+                                {content}
+                            </a>
+                        ) : content;
                     })}
                 </div>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Wrench,
     FileText,
@@ -58,7 +58,30 @@ const projects = [
     }
 ];
 
+const sentences = [
+    "Wannabe entrepreneur. Who isn't?",
+    "AI/ML Engineer at your service.",
+    "Passionate guy learning useful stuff.",
+    "Building my own things.",
+    "Tech enthusiast at heart.",
+    "Top French engineering grad.",
+    "Yes, I do wear glasses.",
+    "Introvert with a keyboard.",
+    "Trying hard to code well.",
+    "Staying curious every day.",
+    "This is mostly not AI-generated.",
+    "This is partly AI-generated.",
+    "Trying to add more human data to www."
+];
+
 function App() {
+    const [randomSentence, setRandomSentence] = useState("");
+
+    useEffect(() => {
+        const randomIndex = Math.floor(Math.random() * sentences.length);
+        setRandomSentence(sentences[randomIndex]);
+    }, []);
+
     return (
         <div className="min-h-screen bg-[#0f0f0f] text-gray-100">
             <div className="max-w-2xl mx-auto px-6 py-16">
@@ -68,8 +91,7 @@ function App() {
                         Maxence Rossignol
                     </h1>
                     <p className="text-lg leading-relaxed text-gray-300 font-light text-center">
-                        AI/ML Engineer focused on building production-ready intelligent systems. 
-                        Expertise in deep learning, computer vision, and NLP for real-world apps.
+                        {randomSentence}
                     </p>
                     <div className="flex justify-center space-x-4 mt-6">
                         <a

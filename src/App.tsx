@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
 import About from './components/About';
+import BlogPostPage from './blog/BlogPostPage';
 
 const sentences = [
     "Wannabe entrepreneur. Who isn't?",
@@ -93,6 +94,7 @@ function AppContent() {
                     <Route path="/" element={<Blog />} />
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/blog/:slug" element={<BlogPostPage />} />
                 </Routes>
             </div>
         </div>

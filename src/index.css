@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  html, body {
+  html,
+  body {
     @apply bg-[#0f0f0f] text-gray-100;
   }
 }

@@ -12,6 +12,7 @@ import Blog from './components/Blog';
 import About from './components/About';
 import BlogPostPage from './blog/BlogPostPage';
 import Footer from './components/Footer';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 const sentences = [
     "Wannabe entrepreneur. Who isn't?",
@@ -41,47 +42,47 @@ function AppContent() {
     const isAboutPage = location.pathname === '/about';
 
     return (
-        <div className="min-h-screen bg-[#0f0f0f] text-gray-100 flex flex-col">
+        <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0f0f0f] dark:text-gray-100 flex flex-col">
             <div className="flex-grow max-w-2xl mx-auto px-6 py-16">
                 <Navbar />
                 {/* Introduction */}
                 <div className="mb-10">
-                    <h1 className="text-4xl font-light mb-6 text-white text-center">
+                    <h1 className="text-4xl font-light mb-6 text-black dark:text-white text-center">
                         Maxence Rossignol
                     </h1>
-                    <div className="text-lg leading-relaxed text-gray-300 font-light text-center">
+                    <div className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 font-light text-center">
                         {isAboutPage ? (
                             <div className="flex justify-center space-x-4 mt-6">
                                 <a
                                     href="https://github.com/maxmaxou2"
-                                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
+                                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#2a2a2a] hover:border-gray-300 dark:hover:border-[#3a3a3a] transition-colors duration-200"
                                     aria-label="GitHub"
                                 >
                                     <Github
                                         size={18}
-                                        className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
+                                        className="text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors duration-200"
                                     />
                                 </a>
                                 <a
                                     href="https://www.linkedin.com/in/maxencerossignol/"
-                                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
+                                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#2a2a2a] hover:border-gray-300 dark:hover:border-[#3a3a3a] transition-colors duration-200"
                                     aria-label="LinkedIn"
                                 >
                                     <Linkedin
                                         size={18}
-                                        className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
+                                        className="text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors duration-200"
                                     />
                                 </a>
                                 <a
                                     href="/assets/pdfs/CV_Maxence_Rossignol.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
+                                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#2a2a2a] hover:border-gray-300 dark:hover:border-[#3a3a3a] transition-colors duration-200"
                                     aria-label="Resume"
                                 >
                                     <FileText
                                         size={18}
-                                        className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
+                                        className="text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors duration-200"
                                     />
                                 </a>
                             </div>
@@ -106,7 +107,9 @@ function AppContent() {
 function App() {
     return (
         <Router>
-            <AppContent />
+            <ThemeProvider>
+                <AppContent />
+            </ThemeProvider>
         </Router>
     );
 }

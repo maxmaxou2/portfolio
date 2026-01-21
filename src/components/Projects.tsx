@@ -66,32 +66,32 @@ function Projects() {
                         key={index}
                         className="group cursor-pointer"
                     >
-                        <div className="flex items-start space-x-4 p-6 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200">
+                        <div className="flex items-start space-x-4 p-6 rounded-lg bg-gray-100 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#2a2a2a] hover:border-gray-300 dark:hover:border-[#3a3a3a] transition-colors duration-200">
                             <div className="flex-shrink-0 mt-1">
                                 <IconComponent
                                     size={24}
-                                    className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
+                                    className="text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors duration-200"
                                 />
                             </div>
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center space-x-2">
-                                    <h3 className="text-xl font-medium text-white group-hover:text-gray-100">
+                                    <h3 className="text-xl font-medium text-black dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100">
                                         {project.title}
                                     </h3>
                                     {project.confidential && (
-                                        <div className="flex items-center px-2 py-0.5 bg-orange-900/30 text-orange-200/70 text-xs rounded-full">
+                                        <div className="flex items-center px-2 py-0.5 bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-200/70 text-xs rounded-full">
                                             <Lock size={12} className="mr-1" />
                                             Confidential
                                         </div>
                                     )}
                                     {!project.confidential && project.link && (
-                                        <div className="flex items-center px-2 py-0.5 bg-green-900/30 text-green-200/70 text-xs rounded-full">
+                                        <div className="flex items-center px-2 py-0.5 bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200/70 text-xs rounded-full">
                                             <Code size={12} className="mr-1" />
                                             Available
                                         </div>
                                     )}
                                 </div>
-                                <p className="text-gray-400 leading-relaxed font-light">
+                                <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light">
                                     {project.subtitle}
                                 </p>
                             </div>

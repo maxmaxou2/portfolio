@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import matter from 'gray-matter';
 
 interface Post {
     slug: string;
@@ -13,19 +14,14 @@ function Blog() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const postModules = import.meta.glob('../blog/*.tsx');
-            const postPromises = Object.entries(postModules).map(async ([path, importer]) => {
-                if (path.includes('BlogPostPage')) {
-                    return null;
-                }
-                const module = await importer() as { meta: Post };
-                if (module.meta) {
-                    return module.meta;
-                }
-                return null;
+            const postFiles = import.meta.glob('../posts/*.md', { as: 'raw' });
+            const postPromises = Object.entries(postFiles).map(async ([, importer]) => {
+                const rawContent = await importer();
+                const { data } = matter(rawContent);
+                return data as Post;
             });
 
-            const resolvedPosts = (await Promise.all(postPromises)).filter((post): post is Post => post !== null);
+            const resolvedPosts = await Promise.all(postPromises);
             const sortedPosts = resolvedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
             setPosts(sortedPosts);
         };

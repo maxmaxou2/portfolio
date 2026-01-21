@@ -61,7 +61,7 @@ function AppContent() {
                                         size={18}
                                         className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
                                     />
-                                a>
+                                </a>
                                 <a
                                     href="https://www.linkedin.com/in/maxencerossignol/"
                                     className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"

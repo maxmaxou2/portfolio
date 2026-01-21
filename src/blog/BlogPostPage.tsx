@@ -29,7 +29,10 @@ const BlogPostPage = () => {
 
     const getPost = async () => {
       try {
-        const postFiles = import.meta.glob('../posts/*.md', { as: 'raw' });
+        const postFiles = import.meta.glob('../posts/*.md', {
+          query: '?raw',
+          import: 'default',
+        });
         let found = false;
         for (const path in postFiles) {
           const rawContent = await postFiles[path]();

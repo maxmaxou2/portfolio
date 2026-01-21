@@ -43,7 +43,7 @@ function AppContent() {
 
     return (
         <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0f0f0f] dark:text-gray-100 flex flex-col">
-            <div className="flex-grow max-w-2xl mx-auto px-6 py-16">
+            <div className="flex-grow max-w-2xl mx-auto px-6 py-8">
                 <Navbar />
                 {/* Introduction */}
                 <div className="mb-10">

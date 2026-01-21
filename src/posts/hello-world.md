@@ -14,6 +14,9 @@ I've always loved writing, most of the times for me.
 Now I can write for others as well, provided that anyone ever reads any of this.
 
 This is currenlty rendered in markdown !\
-Let's check the maths : $E = mc^2$.
+Let's check the maths :
+$$
+E = mc^2
+$$
 
 So please, be my guest ;)

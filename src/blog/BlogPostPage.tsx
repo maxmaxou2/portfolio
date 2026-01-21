@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 import matter from 'gray-matter';
+import 'katex/dist/katex.min.css';
 
 interface Post {
     content: string;
@@ -12,7 +15,7 @@ interface Post {
 }
 
 const BlogPostPage = () => {
-    const { slug } = useParams<{ slug: string }>();
+    const { slug } = useParams<{ slug:string }>();
     const [post, setPost] = useState<Post | null>(null);
     const [notFound, setNotFound] = useState(false);
 
@@ -58,7 +61,7 @@ const BlogPostPage = () => {
             <h1 className="text-4xl font-bold mb-4">{post.data.title}</h1>
             <p className="text-gray-500 dark:text-gray-400 mb-8">{post.data.date}</p>
             <div className="prose lg:prose-xl dark:prose-invert">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>{post.content}</ReactMarkdown>
             </div>
         </div>
     );

@@ -11,6 +11,7 @@ import Projects from './components/Projects';
 import Blog from './components/Blog';
 import About from './components/About';
 import BlogPostPage from './blog/BlogPostPage';
+import Footer from './components/Footer';
 
 const sentences = [
     "Wannabe entrepreneur. Who isn't?",
@@ -40,8 +41,8 @@ function AppContent() {
     const isAboutPage = location.pathname === '/about';
 
     return (
-        <div className="min-h-screen bg-[#0f0f0f] text-gray-100">
-            <div className="max-w-2xl mx-auto px-6 py-16">
+        <div className="min-h-screen bg-[#0f0f0f] text-gray-100 flex flex-col">
+            <div className="flex-grow max-w-2xl mx-auto px-6 py-16">
                 <Navbar />
                 {/* Introduction */}
                 <div className="mb-10">
@@ -60,7 +61,7 @@ function AppContent() {
                                         size={18}
                                         className="text-gray-400 group-hover:text-gray-300 transition-colors duration-200"
                                     />
-                                </a>
+                                a>
                                 <a
                                     href="https://www.linkedin.com/in/maxencerossignol/"
                                     className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#3a3a3a] transition-colors duration-200"
@@ -97,6 +98,7 @@ function AppContent() {
                     <Route path="/blog/:slug" element={<BlogPostPage />} />
                 </Routes>
             </div>
+            <Footer />
         </div>
     );
 }

@@ -6,6 +6,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import matter from 'gray-matter';
 import 'katex/dist/katex.min.css';
+import { calculateReadTime } from '../utils/readTime';
 
 interface Frontmatter {
   title: string;
@@ -23,6 +24,7 @@ const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<Post | null>(null);
   const [notFound, setNotFound] = useState(false);
+  const [readTime, setReadTime] = useState(0);
 
   useEffect(() => {
     if (!slug) return;
@@ -39,6 +41,7 @@ const BlogPostPage = () => {
           const { data, content } = matter(rawContent);
           if (data.slug === slug) {
             setPost({ content, data });
+            setReadTime(calculateReadTime(content));
             found = true;
             break;
           }
@@ -70,7 +73,9 @@ const BlogPostPage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-4">{post.data.title}</h1>
-      <p className="text-gray-500 dark:text-gray-400 mb-8">{post.data.date}</p>
+      <p className="text-gray-500 dark:text-gray-400 mb-8">
+        {post.data.date} · {readTime} min read
+      </p>
       <div className="prose lg:prose-xl dark:prose-invert">
         <ReactMarkdown
           remarkPlugins={[remarkGfm, remarkMath]}
